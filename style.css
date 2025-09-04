@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000; /* Dark background for neon effect */
+    overflow: hidden; /* Prevent scrollbars if elements go out of bounds */
+    font-family: 'Arial Black', sans-serif; /* A bold font for better neon effect */
+}
+
+.neon-container {
+    display: flex;
+    gap: 20px; /* Space between letters */
+    perspective: 1000px; /* For potential 3D effects if we add them later */
+}
+
+.neon-letter {
+    font-size: 150px;
+    color: #fff; /* Initial color, will be overridden by glow */
+    text-shadow:
+        0 0 10px #ff00de, /* Pink glow */
+        0 0 20px #ff00de,
+        0 0 40px #ff00de,
+        0 0 80px #ff00de,
+        0 0 160px #ff00de;
+    animation: neon-flicker 1.5s infinite alternate; /* Main flicker animation */
+    transition: transform 0.2s ease-in-out; /* Smooth transition for hover */
+    position: relative;
+    cursor: pointer;
+    letter-spacing: -5px; /* Adjust as needed for better spacing */
+}
+
+/* Individual letter colors and their shadows (for a multi-colored neon effect) */
+.neon-letter[data-letter="L"] {
+    color: #ff00de; /* Pink */
+    text-shadow:
+        0 0 10px #ff00de,
+        0 0 20px #ff00de,
+        0 0 40px #ff00de,
+        0 0 80px #ff00de,
+        0 0 160px #ff00de;
+}
+
+.neon-letter[data-letter="O"] {
+    color: #00e6e6; /* Cyan */
+    text-shadow:
+        0 0 10px #00e6e6,
+        0 0 20px #00e6e6,
+        0 0 40px #00e6e6,
+        0 0 80px #00e6e6,
+        0 0 160px #00e6e6;
+}
+
+.neon-letter[data-letter="V"] {
+    color: #ffcc00; /* Yellow/Orange */
+    text-shadow:
+        0 0 10px #ffcc00,
+        0 0 20px #ffcc00,
+        0 0 40px #ffcc00,
+        0 0 80px #ffcc00,
+        0 0 160px #ffcc00;
+}
+
+.neon-letter[data-letter="E"] {
+    color: #00ff00; /* Green */
+    text-shadow:
+        0 0 10px #00ff00,
+        0 0 20px #00ff00,
+        0 0 40px #00ff00,
+        0 0 80px #00ff00,
+        0 0 160px #00ff00;
+}
+
+
+/* Hover effect for individual letters */
+.neon-letter:hover {
+    transform: translateY(-10px) scale(1.1); /* Lift and enlarge slightly */
+    animation: none; /* Stop the flicker on hover for a solid look */
+}
+
+/* Keyframes for the flicker animation */
+@keyframes neon-flicker {
+    0%, 100% {
+        opacity: 1;
+        text-shadow:
+            0 0 10px var(--neon-color-shadow, #ff00de),
+            0 0 20px var(--neon-color-shadow, #ff00de),
+            0 0 40px var(--neon-color-shadow, #ff00de),
+            0 0 80px var(--neon-color-shadow, #ff00de),
+            0 0 160px var(--neon-color-shadow, #ff00de);
+    }
+    5% {
+        opacity: 0.8;
+        text-shadow: none;
+    }
+    7% {
+        opacity: 1;
+        text-shadow:
+            0 0 10px var(--neon-color-shadow, #ff00de),
+            0 0 20px var(--neon-color-shadow, #ff00de),
+            0 0 40px var(--neon-color-shadow, #ff00de);
+    }
+    8% {
+        opacity: 0.9;
+        text-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        text-shadow:
+            0 0 10px var(--neon-color-shadow, #ff00de),
+            0 0 20px var(--neon-color-shadow, #ff00de),
+            0 0 40px var(--neon-color-shadow, #ff00de),
+            0 0 80px var(--neon-color-shadow, #ff00de);
+    }
+    15% {
+        opacity: 0.8;
+        text-shadow: none;
+    }
+    17% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0.9;
+        text-shadow: none;
+    }
+    30% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0.8;
+        text-shadow: none;
+    }
+    50% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0.9;
+    }
+    70% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 1;
+    }
+}
